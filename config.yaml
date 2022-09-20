@@ -1,0 +1,16 @@
+http:
+  port: "8081"
+  protocol : "http"
+  
+  
+sfdc:
+  client_id: "3MVG9t0sl2P.***"
+  client_secret: "2946ED***"
+  un: "thoeger@dvag.demo"
+  pw: "*****"
+  sectoken: ""
+  uri: "https://<yourdomain>-dev-ed.my.salesforce.com/"
+  
+  
+  
+  
