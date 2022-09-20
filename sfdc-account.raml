@@ -1,0 +1,73 @@
+#%RAML 1.0
+title: sfdc-account
+
+protocols:
+  - HTTP
+  - HTTPS
+
+mediaType: 
+- application/json
+
+
+types:
+  Account:
+    example:
+      strict: true
+      value:
+        Name: MuleSoft
+        AccountNumber: A001
+        SFDCID: 0017Q00000aprTnQAI
+        Email: info@mulesoft.com
+    properties:
+      Name:
+        example: MuleSoft
+        type: string
+      AccountNumber?:
+        example: A001
+        type: string
+      SFDCID:
+        example: 0017Q00000aprTnQAI
+        type: string
+      Email?:
+        example: info@mulesoft.com
+        type: string
+
+/Account:
+  get:
+    displayName: Account Endpoint
+    responses:
+      "200":
+        body:
+          application/json:
+            type: Account
+  /{AccountNumber}:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: Account
+              example: | 
+                  {
+                    "Name": "MuleSoft",
+                    "AccountNumber": "A001",
+                    "SFDCID": "0017Q00000aprTnQAI",
+                    "Email": "info@mulesoft.com"
+                  }       
+  post:
+    body:
+      application/json:
+        type: Account
+        example:
+          Name: MuleSoft
+          AccountNumber: A001
+          SFDCID: 0017Q00000aprTnQAI
+          Email: info@mulesoft.com
+    responses:
+      200:
+        body:
+          application/json:
+            properties:
+              Status: string
+            example:
+              Status: submitted
